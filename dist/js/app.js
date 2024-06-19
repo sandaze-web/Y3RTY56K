@@ -267,7 +267,8 @@ document.addEventListener('DOMContentLoaded', function () { // Аналог $(do
 
     if(document.querySelector('.header-burger')) {
         let burger = document.querySelector('.header-burger'),
-            nav = document.querySelector('.header-nav')
+            nav = document.querySelector('.header-nav'),
+            links = document.querySelectorAll('.header-nav__link')
         burger.addEventListener('click', () => {
             burger.classList.toggle('active')
             if(nav.classList.contains('_is-open')) {
@@ -277,13 +278,20 @@ document.addEventListener('DOMContentLoaded', function () { // Аналог $(do
             }
             toggleBodyLock(nav.classList.contains('_is-open'))
         })
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active')
+                nav.classList.remove('_is-open')
+                toggleBodyLock(nav.classList.contains('_is-open'))
+            })
+        })
     }
 });
 
 $('a[href^="#"]').on("click", function (e) {
     let anchor = $(this);
     let offsetAnchor = 0
-    if(window.innerWidth <= 768) offsetAnchor = 100
+    if(window.innerWidth <= 768) offsetAnchor = 0
     let offset = document.documentElement.clientHeight * offsetAnchor / 929
     $('html, body').stop().animate({
         scrollTop: $(anchor.attr("href")).offset().top - offset
