@@ -1,0 +1,201 @@
+.hero {
+  margin-top: 30px;
+  border-radius: $mainRadius;
+  padding-bottom: 40px;
+  padding-top: 90px;
+  position: relative;
+  background: url("../images/hero/bg.svg"), #fff;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  &-imgBx {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    & img {
+      max-width: 100%;
+    }
+  }
+  &__pretitle {
+    display: inline-block;
+    padding: 10px;
+    background: $--second-color;
+    color: #fff;
+    font-size: rem(18);
+    line-height: 140%;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  &__title {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: rem(84);
+    letter-spacing: -0.02em;
+    line-height: 86%;
+    font-weight: 700;
+  }
+  &-lists {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    &__item {
+      position: relative;
+      font-size: rem(20);
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      &:before {
+        content: '';
+        width: 100%;
+        max-width: 6px;
+        height: 6px;
+        background-color: $--second-color;
+        margin-right: 8px;
+      }
+    }
+  }
+  &__button {
+    width: 100%;
+    max-width: 310px;
+    margin-top: 44px;
+  }
+  &-advantages {
+    margin-top: 89px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0 50px;
+    position: relative;
+    z-index: 10;
+    &__item {
+      padding: 30px;
+      border-radius: $mainRadius;
+      background: rgba(234, 242, 255, 0.66);
+      backdrop-filter: blur(8px);
+      &-title {
+        font-size: rem(20);
+        text-transform: uppercase;
+        color: $--accent-color;
+        font-weight: 700;
+      }
+      &-subtitle {
+        margin-top: 16px;
+        line-height: 140%;
+        font-size: rem(18);
+        letter-spacing: -0.02em;
+      }
+    }
+  }
+  @include media(1600) {
+    overflow: hidden;
+    &-imgBx {
+      right: -100px;
+    }
+  }
+  @include media(1366) {
+    &-imgBx {
+      right: -160px;
+    }
+    &__title {
+      font-size: rem(60);
+    }
+    &__pretitle {
+      font-size: rem(16);
+    }
+    &-advantages {
+      grid-gap: 20px;
+      &__item {
+        padding: 30px;
+      }
+    }
+  }
+  @include media(1080) {
+    &-imgBx {
+      right: -261px;
+    }
+    &-advantages {
+      &__item {
+        padding: 20px;
+        &-title {
+          font-size: rem(18);
+        }
+        &-subtitle {
+          font-size: rem(16);
+        }
+      }
+    }
+  }
+  @include media(768) {
+    padding-top: 0px;
+    margin-top: 20px;
+    background: transparent;
+    padding-bottom: 0;
+    &-wrapper {
+      flex-direction: column;
+      border-radius: 10px;
+      padding: 26px 14px 0;
+      background: url("../images/hero/bg.svg"), #fff;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+    &-main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__pretitle {
+      font-size: rem(14);
+      line-height: 19px;
+      padding: 6px;
+      max-width: 220px;
+      border-radius: 4px;
+    }
+    &__title {
+      font-size: rem(34);
+      margin-top: 12px;
+      line-height: 47.6px;
+    }
+    &-lists {
+      row-gap: 16px;
+      line-height: 22.4px;
+      margin-top: 16px;
+      width: 100%;
+      &__item {
+        font-size: rem(16);
+        line-height: 22.4px;
+      }
+    }
+    &-imgBx {
+      position: relative;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      margin-top: 40px;
+      & img {
+        transform: scale(1.1);
+      }
+    }
+    &__button {
+      margin-top: 34px;
+      font-size: rem(16);
+      max-width: 600px;
+    }
+    &-advantages {
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: 20px;
+      grid-gap: 20px;
+      &__item {
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 10px;
+        &-title {
+          font-size: rem(18);
+        }
+        &-subtitle {
+          margin-top: 12px;
+          font-size: rem(16);
+        }
+      }
+    }
+  }
+}

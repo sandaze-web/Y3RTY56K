@@ -1,0 +1,130 @@
+.clinic {
+  margin-top: 145px;
+  &__title {
+    text-align: center;
+  }
+  &-box {
+    margin-top: 79px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 50px;
+  }
+  &__item {
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 340px;
+    &:first-child {
+      padding: 30px;
+      background-color: #fff;
+    }
+    &-desc {
+      line-height: 25.2px;
+      font-size: rem(18);
+      color: $--grey-color;
+    }
+  }
+  &-swiper {
+    display: none !important;
+  }
+
+  &-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    column-gap: 7px;
+    display: none;
+    @include media(768) {
+      display: flex;
+    }
+  }
+  & .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    transition: .4s;
+    display: none;
+    &.swiper-pagination-bullet-active {
+      background: rgba(83, 86, 152, 1);
+    }
+    @include media(768) {
+      display: flex;
+    }
+  }
+  &-arrowBx {
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    column-gap: 37px;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    transform: translateY(36%);
+    display: none;
+    @include media(768) {
+      display: flex;
+    }
+  }
+  &__arrow {
+    background-color: $--accent-color;
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: .4s;
+    cursor: pointer;
+    &.swiper-button-disabled {
+      opacity: 66%;
+    }
+    & i {
+      color: #fff;
+    }
+  }
+  @include media(768) {
+    margin-top: 60px;
+    &-box {
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: 30px;
+    }
+    &__item {
+      border-radius: 10px;
+      @include notFirst {
+        display: none;
+      }
+      &:first-child {
+        padding: 16px;
+      }
+      &-desc {
+        font-size: rem(16);
+      }
+    }
+    &-swiper {
+      display: flex !important;
+      margin-right: -16px;
+      margin-left: -16px;
+      margin-top: 20px;
+      & .clinic__item {
+        display: block;
+      }
+    }
+    &__container {
+      position: relative;
+    }
+  }
+  @include media(500) {
+    &__item {
+      height: 256px;
+      min-height: unset;
+      &:first-child {
+        height: auto;
+        min-height: unset;
+      }
+    }
+  }
+}

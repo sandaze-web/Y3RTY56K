@@ -1,0 +1,84 @@
+.footer {
+  margin-top: 140px;
+  background: $--text-color;
+  border-radius: 20px;
+  padding: 90px 0;
+  &-wrapper {
+    padding-bottom: 50px;
+  }
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__copiryght {
+    color: #fff;
+    max-width: 210px;
+    font-size: rem(14);
+    margin-top: 12px;
+    line-height: 19.6px;
+  }
+  &__politics {
+    margin-top: 12px;
+    color: #fff;
+    display: block;
+    font-size: rem(14);
+  }
+  &__title {
+    color: #fff;
+    font-weight: 700;
+    font-size: rem(18);
+  }
+  &-pages {
+    margin-top: 14px;
+    &__item {
+      color: #fff;
+      max-width: 255px;
+      line-height: 22.4px;
+      @include notLast {
+        margin-bottom: 12px;
+      }
+    }
+    &__link {
+      color: #fff;
+
+    }
+  }
+  &-socialBx {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+    column-gap: 12px;
+  }
+  @include media(1080) {
+    &-inner {
+      flex-wrap: wrap;
+      row-gap: 40px;
+    }
+  }
+  @include media(768) {
+    margin-top: 60px;
+    border-radius: 10px 10px 0 0;
+    padding: 16px 0;
+    &-wrapper {
+      padding-bottom: 0;
+    }
+    &-inner {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+    &__copiryght {
+      margin-top: 19px;
+    }
+    &__politics {
+      margin-top: 19px;
+    }
+    &-item {
+
+    }
+    &__title {
+    }
+    &-pages {
+      margin-top: 14px;
+    }
+  }
+}

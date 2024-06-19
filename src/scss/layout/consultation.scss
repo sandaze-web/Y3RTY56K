@@ -1,0 +1,80 @@
+.consultation {
+  margin-top: 140px;
+
+  &-inner {
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 90px;
+    padding-right: 120px;
+    justify-content: space-between;
+    background: url("../images/consultation/bg.svg"), $--second-color;
+    background-repeat: no-repeat;
+  }
+  &-main {
+    align-self: flex-start;
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  &__title {
+    color: #fff;
+  }
+  &__subtitle {
+    margin-top: 25px;
+    color: #fff;
+    font-size: rem(18);
+
+  }
+  &__button {
+    margin-top: 41px;
+    width: 100%;
+    max-width: 310px;
+  }
+  &-imgBx {
+    margin-top: -86px;
+  }
+  @include media(1366) {
+    &-imgBx {
+      margin-right: -50px;
+      & img {
+        max-width: unset;
+      }
+    }
+  }
+  @include media(600) {
+    margin-top: 60px;
+    overflow: hidden;
+    &-inner {
+      flex-direction: column;
+      padding: 20px 14px 0;
+      background: url("../images/consultation/mobile-bg.svg"), $--second-color;
+      background-repeat: no-repeat;
+    }
+    &-main {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    &__title {
+      text-align: center;
+    }
+    &__subtitle {
+      margin-top: 25px;
+      text-align: center;
+    }
+    &__button {
+      max-width: 600px;
+      margin-top: 30px;
+    }
+    &-imgBx {
+      margin-top: 21px;
+      margin-right: -70px;
+      & img {
+        max-width: 100%;
+      }
+    }
+  }
+}

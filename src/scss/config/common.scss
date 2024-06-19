@@ -1,0 +1,53 @@
+// Заголовки, общие БЄМ блоки и проче...
+body {
+  background-color: $--body-color;
+  font-family: "Rubik", sans-serif;
+
+}
+html {
+  padding-bottom: 50px;
+}
+.pb {
+  background-color: $--accent-color;
+  color: #fff;
+  padding: 18px 0;
+  font-weight: 500;
+  font-size: rem(18);
+  border-radius: 10px;
+}
+.section_m {
+  margin: 0 60px;
+  border-radius: 20px;
+  @include media(1366) {
+    margin: 0 20px;
+  }
+  @include media(768) {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+.title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: rem(44);
+  letter-spacing: -2%;
+  line-height: 61.6px;
+  @include media(590) {
+    font-size: rem(22);
+    line-height: 30.8px;
+  }
+}
+
+.fancybox__container {
+  max-width: none !important;
+}
+.f-button {
+  background-color: transparent !important;
+  & * {
+    stroke: #FFFFFF !important;
+  }
+}
+:root {
+  --f-button-svg-fill: #fff;
+}

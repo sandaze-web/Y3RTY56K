@@ -1,0 +1,125 @@
+.about {
+  margin-top: 68px;
+  &__title {
+    text-align: center;
+  }
+  &-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 33px 50px;
+    margin-top: 65px;
+  }
+  &__item {
+    padding: 30px;
+    background: #fff;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    &.df {
+      display: flex;
+      align-items: center;
+
+    }
+    &.ac {
+      background-color: $--second-color;
+      & .about__item-desc {
+        color: #fff;
+      }
+    }
+    &-title {
+      font-size: rem(18);
+      font-weight: 700;
+      color: rgba(83, 86, 152, 1);
+
+    }
+    &-desc {
+      @include notFirst {
+        margin-top: 16px;
+      }
+      line-height: 25.2px;
+      font-size: rem(18);
+      color: $--grey-color;
+    }
+    &:nth-child(2) {
+      grid-row: span 2;
+      padding: 0;
+      background: url("../images/about/bg.svg"), #fff;
+    }
+    &:nth-child(3) {
+      margin-bottom: 17px;
+    }
+    & img {
+      margin-bottom: 0;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  @include media(1366) {
+    margin-top: 60px;
+    &-box {
+      margin-top: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+    &__item {
+      margin-bottom: 0 !important;
+      border-radius: 10px;
+      padding: 16px;
+      &-desc {
+        font-size: rem(16);
+        line-height: 22.4px;
+      }
+      &:nth-child(2) {
+        grid-row: 3 / 4;
+        height: 393px;
+        grid-column: 1 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & img {
+          margin-bottom: -40px;
+          max-width: 37%;
+        }
+      }
+    }
+  }
+  @include media(768) {
+    margin-top: 60px;
+    &-box {
+      margin-top: 30px;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 20px;
+    }
+    &__item {
+      margin-bottom: 0 !important;
+      border-radius: 10px;
+      padding: 16px;
+      &-desc {
+        font-size: rem(16);
+        line-height: 22.4px;
+      }
+      &:nth-child(2) {
+        grid-row: unset;
+        grid-row: 5 / 6;
+        height: auto;
+        display: block;
+        grid-column: unset;
+        & img {
+          margin-bottom: 0px;
+          max-width: 100%;
+          height: 100%;
+          position: relative;
+        }
+      }
+    }
+  }
+  @include media(450) {
+    &__item {
+      &:nth-child(2) {
+        & img {
+          height: auto;
+        }
+      }
+    }
+  }
+}
