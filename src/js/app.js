@@ -127,6 +127,16 @@ document.addEventListener('DOMContentLoaded', function () { // Аналог $(do
     }
 });
 
+$('a[href^="#"]').on("click", function (e) {
+    let anchor = $(this);
+    let offsetAnchor = 0
+    if(window.innerWidth <= 768) offsetAnchor = 100
+    let offset = document.documentElement.clientHeight * offsetAnchor / 929
+    $('html, body').stop().animate({
+        scrollTop: $(anchor.attr("href")).offset().top - offset
+    }, 700);
+    e.preventDefault();
+});
 
 // Паралакс мышей ========================================================================================
 // const mousePrlx = new MousePRLX({})
