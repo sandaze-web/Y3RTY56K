@@ -1058,6 +1058,9 @@ html {
   .sertificate-swiper {
     margin-top: 30px;
   }
+  .sertificate-slide {
+    border-radius: 10px;
+  }
   .sertificate-arrowBx {
     bottom: 0;
     width: 100%;
@@ -1262,6 +1265,7 @@ html {
     padding: 20px 14px 0;
     background: url("../images/consultation/mobile-bg.svg"), rgb(245, 148, 123);
     background-repeat: no-repeat;
+    border-radius: 10px;
   }
   .consultation-main {
     padding: 0;

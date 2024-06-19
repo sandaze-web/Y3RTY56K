@@ -192,6 +192,8 @@ document.addEventListener('DOMContentLoaded', function () { // Аналог $(do
             }
         })
         Fancybox.bind('[data-fancybox="gallery"]', {  });
+        Fancybox.bind('[data-fancybox="photos"]', {  });
+        Fancybox.bind('[data-fancybox="photos-desktop"]', {  });
     }
     if (document.querySelector('.clinic')) {
         const sertificateSwiper = new Swiper('.clinic-swiper', {
