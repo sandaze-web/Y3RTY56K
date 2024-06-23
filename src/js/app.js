@@ -135,6 +135,29 @@ document.addEventListener('DOMContentLoaded', function () { // Аналог $(do
             })
         })
     }
+
+    if(document.querySelector('input.phone')) {
+        document.querySelectorAll('input.phone').forEach(input => {
+            $(input).mask('+7 (999) 999-99-99')
+        })
+    }
+
+    if(document.querySelector('.modal-form')) {
+        let form = document.querySelector('.modal-form')
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            if(validateForm(form)) {
+                alert('Ajax')
+            }
+        })
+    }
+
+    if(document.querySelector('.copyText')) {
+        let copyButton = document.querySelector('.copyText')
+        copyButton.addEventListener('click', () => {
+            copyTextToClipboard(window.location.href)
+        })
+    }
 });
 
 $('a[href^="#"]').on("click", function (e) {
@@ -147,6 +170,103 @@ $('a[href^="#"]').on("click", function (e) {
     }, 700);
     e.preventDefault();
 });
+
+let copyTextToClipboard = (text, textMessage = 'Скопировано!') => {
+    // Создаем временный элемент для копирования текста
+    let tempInput = document.createElement('input'),
+        message = document.querySelector('.message')
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+
+    // Выделяем текст внутри временного элемента
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999);
+
+    try {
+        // Копируем выделенный текст в буфер обмена
+        document.execCommand('copy');
+
+        // Визуальное подтверждение копирования (опционально)
+        if(message) {
+            message.classList.add('active')
+            message.textContent = textMessage
+        }
+        setTimeout(() => {
+            if(message) {
+                message.classList.remove('active')
+            }
+        }, 3000)
+    } catch (err) {
+        console.error('Не удалось скопировать текст: ', err);
+    }
+
+    // Удаляем временный элемент
+    document.body.removeChild(tempInput);
+}
+
+
+let validateForm = (form) => {
+    let elements = form.elements;
+    let isValid = true;
+
+    for (let i = 0; i < elements.length; i++) {
+        let element = elements[i];
+
+        if (element.tagName === 'INPUT' && element.hasAttribute('required')) {
+            let parentFormGroup = element.closest('div');
+
+            switch (element.type) {
+                case 'email':
+                    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(element.value.trim())) {
+                        markAsError(parentFormGroup, 'Некорректно введены данные');
+                        isValid = false;
+                    } else {
+                        removeError(parentFormGroup);
+                    }
+                    break;
+                case 'tel':
+                    let phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+                    console.log(element.value.trim())
+                    if (!phoneRegex.test(element.value.trim())) {
+                        markAsError(parentFormGroup, 'Некорректно введены данные');
+                        isValid = false;
+                    } else {
+                        removeError(parentFormGroup);
+                    }
+                    break;
+                case 'checkbox':
+                    if (!element.checked) {
+                        markAsError(parentFormGroup, 'Заполните поле');
+                        isValid = false;
+                    } else {
+                        removeError(parentFormGroup);
+                    }
+                    break;
+                default:
+                    if (element.value.trim() === '') {
+                        markAsError(parentFormGroup, 'Заполните поле');
+                        isValid = false;
+                    } else {
+                        removeError(parentFormGroup);
+                    }
+            }
+        }
+    }
+
+    return isValid;
+};
+
+let markAsError = (element, errorMessageSpan, message) => {
+    element.classList.add('error');
+    // errorMessageSpan.textContent = message;
+}
+
+let removeError = (element, errorMessageSpan) => {
+    element.classList.remove('error');
+    // errorMessageSpan.textContent = '';
+}
+
 
 // Паралакс мышей ========================================================================================
 // const mousePrlx = new MousePRLX({})

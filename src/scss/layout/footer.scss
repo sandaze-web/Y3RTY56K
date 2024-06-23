@@ -40,7 +40,10 @@
     }
     &__link {
       color: #fff;
-
+      transition: .4s;
+      &:hover {
+        color: $--second-color;
+      }
     }
   }
   &-socialBx {
@@ -48,6 +51,22 @@
     align-items: center;
     margin-top: 14px;
     column-gap: 12px;
+  }
+  &__social {
+    transition: .4s;
+    border-radius: 50%;
+    display: flex;
+    & path {
+      transition: .4s;
+    }
+    &:hover {
+      background-color: #fff;
+      & path {
+        &:first-child {
+          fill: $--second-color;
+        }
+      }
+    }
   }
   @include media(1080) {
     &-inner {

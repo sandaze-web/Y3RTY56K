@@ -35,12 +35,31 @@
     }
     &__link {
       font-size: rem(18);
+      transition: .4s;
+      &:hover {
+        color: $--accent-color;
+      }
     }
   }
   &-socialBx {
     display: flex;
     align-items: center;
     column-gap: 12px;
+    &__item {
+      //transition: .4s;
+      //border-radius: 50%;
+      //display: flex;
+      //& path {
+      //  transition: .4s;
+      //}
+      //&:hover {
+      //  & path {
+      //    &:first-child {
+      //      fill: rgba(98, 101, 174, 1);
+      //    }
+      //  }
+      //}
+    }
   }
   &-burger {
     display: none;

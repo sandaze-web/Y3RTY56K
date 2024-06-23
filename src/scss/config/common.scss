@@ -7,6 +7,7 @@ body {
 html {
   padding-bottom: 50px;
 }
+// Primary button
 .pb {
   background-color: $--accent-color;
   color: #fff;
@@ -14,6 +15,10 @@ html {
   font-weight: 500;
   font-size: rem(18);
   border-radius: 10px;
+  transition: .4s;
+  &:hover {
+    background: rgba(98, 101, 174, 1);
+  }
 }
 .section_m {
   margin: 0 60px;
@@ -36,6 +41,23 @@ html {
   @include media(590) {
     font-size: rem(22);
     line-height: 30.8px;
+  }
+}
+
+// Primary input
+.pi {
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(214, 219, 233, 1);
+  font-size: rem(16);
+  transition: .4s;
+  @include styledPlaceholder(rgba(177, 184, 206, 1));
+  &:hover {
+    border-color: rgba(190, 200, 232, 1);
+  }
+  &:focus {
+    border-color: rgba(173, 189, 238, 1);
   }
 }
 
